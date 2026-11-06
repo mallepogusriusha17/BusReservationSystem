@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Booking Management</h1>
+        <p>Add, view, update and delete bus bookings</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="passengers.html">Passengers</a>
+        <a href="buses.html">Buses</a>
+        <a href="bookings.html">Bookings</a>
+    </nav>
+
+    <main class="container">
+        <h2>Booking Details</h2>
+
+        <form id="bookingForm">
+            <input type="hidden" id="booking_id">
+
+            <label>Passenger</label>
+            <select id="passenger_id" required>
+                <option value="">Select Passenger</option>
+            </select>
+
+            <label>Bus</label>
+            <select id="bus_id" required>
+                <option value="">Select Bus</option>
+            </select>
+
+            <label>Journey Date</label>
+            <input type="date" id="journey_date" required>
+
+            <label>Seats Booked</label>
+            <input type="number" id="seats_booked" min="1" value="1" required>
+
+            <label>Total Amount</label>
+            <input type="number" id="total_amount" min="0" step="0.01" required>
+
+            <button type="submit">Save Booking</button>
+            <button type="button" class="secondary" onclick="resetBookingForm()">Clear</button>
+        </form>
+
+        <p id="bookingMessage" class="message"></p>
+
+        <h2>Booking List</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Passenger</th>
+                        <th>Bus</th>
+                        <th>Journey Date</th>
+                        <th>Seats</th>
+                        <th>Total Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bookingTable"></tbody>
+            </table>
+        </div>
+
+        <a class="back-link" href="index.html">← Back to Home</a>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
